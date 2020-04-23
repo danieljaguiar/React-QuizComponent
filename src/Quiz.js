@@ -13,10 +13,7 @@ class Quiz extends Component {
       <QuizQuestion
         className="QuizQuestion"
         quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]}
-      >
-        {quizData.quiz_questions[0].instruction_text}
-        {/* <QuizQuestion></QuizQuestion> */}
-      </QuizQuestion>
+      ></QuizQuestion>
     );
   }
 }
