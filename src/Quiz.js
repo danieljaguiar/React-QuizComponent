@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import QuizQuestion from "./QuizQuestion";
+import QuizEnd from "./QuizEnd";
 
 let quizData = require("./quiz_data.json");
 
@@ -9,12 +10,22 @@ class Quiz extends Component {
     this.state = { quiz_position: 1 };
   }
   render() {
-    return (
-      <QuizQuestion
-        className="QuizQuestion"
-        quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]}
-      ></QuizQuestion>
-    );
+    const isQuizEnd =
+      this.state.quiz_position - 1 === quizData.quiz_questions.length;
+    let finalResult;
+
+    if (isQuizEnd) {
+      finalResult = <QuizEnd></QuizEnd>;
+    } else {
+      finalResult = (
+        <QuizQuestion
+          className="QuizQuestion"
+          quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]}
+        ></QuizQuestion>
+      );
+    }
+
+    return <div>{finalResult}</div>;
   }
 }
 
