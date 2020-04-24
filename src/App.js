@@ -4,6 +4,8 @@ import Quiz from "./Quiz";
 
 class App extends Component {
   render() {
+    console.log("App -> render");
+
     return <Quiz></Quiz>;
   }
 }
